@@ -254,8 +254,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ccac0847784367418c7112efb3a5057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randoElement: {fileID: 5674279312542275127, guid: 6e6886e764cd82d4c9c97417ae8ab18f, type: 3}
-  ObstacleDensity: 1
+  randomElement:
+  - {fileID: 6747533155218172260, guid: 6f2852693f31aa346893f88af10993aa, type: 3}
+  - {fileID: 4851773570250629847, guid: 49c9b8c245b65204ab939a1d57c845f5, type: 3}
+  - {fileID: 5674279312542275127, guid: 6e6886e764cd82d4c9c97417ae8ab18f, type: 3}
+  ObstacleDensity: 3
 --- !u!4 &1908590890
 Transform:
   m_ObjectHideFlags: 0
@@ -300,7 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ccac0847784367418c7112efb3a5057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randoElement: {fileID: 276028432235228725, guid: 7b3fa9c4d24e465409a2d5a8ef937d69, type: 3}
+  randomElement:
+  - {fileID: 276028432235228725, guid: 7b3fa9c4d24e465409a2d5a8ef937d69, type: 3}
   ObstacleDensity: 0.45
 --- !u!4 &1991203641
 Transform:
@@ -327,6 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2013686188}
   - component: {fileID: 2013686187}
+  - component: {fileID: 2013686189}
   m_Layer: 0
   m_Name: car_red_1
   m_TagString: Untagged
@@ -401,6 +406,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2013686189
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013686186}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5546875, y: 1.0234375}
+    newSize: {x: 0.5546875, y: 1.0234375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5546875, y: 1.0234375}
+  m_EdgeRadius: 0
 --- !u!1001 &5470894687576660767
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 
 public class GroundGenerator : MonoBehaviour
 {
-    public GameObject randoElement;
+    public GameObject[] randomElement;
     public float ObstacleDensity = 0.45f;
 
     void Start()
@@ -20,7 +20,7 @@ public class GroundGenerator : MonoBehaviour
 
     void GenerateNewAsfalt()
     {
-        Instantiate(randoElement, this.transform.position,Quaternion.identity);
+        Instantiate(randomElement[Random.Range(0,randomElement.Length)], this.transform.position,Quaternion.identity);
     }
 
 
