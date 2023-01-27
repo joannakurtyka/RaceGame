@@ -14,6 +14,8 @@ using System.Security.Cryptography.X509Certificates;
 public class GroundGenerator : MonoBehaviour
 {
     public GameObject[] randomElement;
+    public GameObject barElement;
+
     public float ObstacleDensity = 0.45f;
     private int randomIdx = 0;
     public int power = 0;
@@ -35,7 +37,13 @@ public class GroundGenerator : MonoBehaviour
         }
             
             Instantiate(randomElement[randomIdx], this.transform.position,Quaternion.identity);
-        
+        if (this.name == "LeftObjectGenerator")
+        {
+                 Vector3 pos = this.transform.position; 
+            pos.x = 0;
+                 Instantiate(barElement, pos, Quaternion.identity);
+        }
+
     }
 
 

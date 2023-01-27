@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Stopper
   - Car
+  - Bar
   layers:
   - Default
   - TransparentFX
