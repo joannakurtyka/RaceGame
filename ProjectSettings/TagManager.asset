@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Stopper
+  - Car
   layers:
   - Default
   - TransparentFX
