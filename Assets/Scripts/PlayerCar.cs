@@ -15,7 +15,6 @@ public class PlayerCar : MonoBehaviour
     void Start()
     {
         carTransfortm = GetComponent<Transform>();
-        Debug.Log("Lewa " + carTransfortm.GetComponent<Transform>().position.x);
 
     }
 
@@ -25,7 +24,7 @@ public class PlayerCar : MonoBehaviour
         float hAxis = Input.GetAxis("Horizontal");
         if (shouldMove == 1 && carTransfortm.GetComponent<Transform>().position.x + (hAxis * speedFactor) > -1.1f && carTransfortm.GetComponent<Transform>().position.x + (hAxis * speedFactor) < 1.1f)
         {
-            carTransfortm.Translate(hAxis * speedFactor, 0, 0);
+            carTransfortm.Translate(shouldMove * hAxis * speedFactor, 0, 0);
         }
 
 
@@ -35,22 +34,22 @@ public class PlayerCar : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bar")
         {
-            carTransfortm.Translate(0, 0, 0);
+            if (carTransfortm.GetComponent<Transform>().position.x < 0)
+            {
+                carTransfortm.Translate(-0.5f, 0, 0);
+            } else { carTransfortm.Translate(0.5f, 0, 0);  }
             followingTBar = collision.gameObject;
-            shouldMove = 0;
+            shouldMove = 1;
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        Debug.LogFormat("{0} trigger stay: {1}", this, collision);
-    }
+    
+   
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Lewa tag dupa" + collision.gameObject.tag);
         if(collision.gameObject == followingTBar)
         {
             followingTBar = null;
-            Debug.Log("Lewa tag" + collision.gameObject.tag);
             shouldMove = 1;
         }
 
