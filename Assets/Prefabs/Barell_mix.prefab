@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 5428444993558128659}
   - component: {fileID: 8355668913864701767}
   - component: {fileID: -4399749943284695923}
+  - component: {fileID: -1987944227211520659}
   m_Layer: 1
   m_Name: Barell_mix
   m_TagString: Stopper
@@ -240,7 +241,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 12
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -256,11 +257,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4851773570250629847}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea7f72b849059af48a84dff2354db93a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1987944227211520659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851773570250629847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c165f510290eea48838f365e4e55c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObiectMass: 10
 --- !u!1 &7594622910966080046
 GameObject:
   m_ObjectHideFlags: 0

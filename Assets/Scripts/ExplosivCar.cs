@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ExplosivCar : MonoBehaviour
 {
-public GameObject explosiveElement;
+    public GameObject explosiveElement;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,7 @@ public GameObject explosiveElement;
         if (collision.tag == "Stopper")
         {
             Instantiate(explosiveElement, this.transform.position, Quaternion.identity);
+          
         }
     }
 
