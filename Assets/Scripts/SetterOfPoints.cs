@@ -79,38 +79,31 @@ public class SetterOfPoints : MonoBehaviour
                 _currentTriggers.Add(other);
             }
 
+                massCar =  findedCar.GetComponent<ObiectMass>().mObiectMass ;
 
-            massCar = (prefMass==0)?findedCar.GetComponent<ObiectMass>().mObiectMass : prefMass;
-         //   Debug.Log("Car mass " + massCar+" PreffMass"+ prefMass );
-           
+
             if (_currentTriggers.Count > 1)
             {
 
               
                 for (int i = 0; i < _currentTriggers.Count; i++)
                 {
-                    _currentTriggers[i].GetComponent<ObiectMass>().mObiectMass = massCar - 1;
+                    _currentTriggers[i].GetComponent<ObiectMass>().mObiectMass = massCar ;
                 }
                
-                _currentTriggers[Random.Range(0,2)].GetComponent<ObiectMass>().mObiectMass = massCar * 2;
-            //    DestroyImmediate(floatingPointsText1);
+                _currentTriggers[Random.Range(0,2)].GetComponent<ObiectMass>().mObiectMass = massCar * 2;          
                                 
                 Vector3 floatP1 = _currentTriggers[1].transform.position;
                 floatP1.y = floatP1.y + 0.3f;
 
                 floatingPointsText1.layer = 3;
                 floatingPointsText1.GetComponent<AutoMoveAndRotate>().moveUnitsPerSecond.value.y = -2;
-                floatingPointsText1.GetComponent<TextMesh>().text = _currentTriggers[1].GetComponent<ObiectMass>().mObiectMass.ToString();
+                floatingPointsText1.GetComponent<TextMesh>().text = (_currentTriggers[1].GetComponent<ObiectMass>().mObiectMass > 0) ? _currentTriggers[1].GetComponent<ObiectMass>().mObiectMass.ToString() : "1";
                 if (cFloatingPointsText1 != null)
                 {
-                    Destroy(cFloatingPointsText1,0.8f);
+                    Destroy(cFloatingPointsText1,0.7f);
                 }
-                cFloatingPointsText1 = Instantiate(floatingPointsText1, floatP1, Quaternion.identity);
-
-
-             //   Debug.Log("1 count "+ "_currentTriggers.Count " + _currentTriggers[1].name + "  " + _currentTriggers[1].GetComponent<ObiectMass>().mObiectMass);
-                
-                
+                cFloatingPointsText1 = Instantiate(floatingPointsText1, floatP1, Quaternion.identity);                          
 
             }
             else { _currentTriggers[0].GetComponent<ObiectMass>().mObiectMass = massCar - 1; 
@@ -118,16 +111,15 @@ public class SetterOfPoints : MonoBehaviour
 
             Vector3 floatP2 = _currentTriggers[0].transform.position;
             floatP2.y = floatP2.y + 0.3f;
-          //  DestroyImmediate(floatingPointsText2);
+
             floatingPointsText2.layer = 5;
             floatingPointsText2.GetComponent<AutoMoveAndRotate>().moveUnitsPerSecond.value.y = -2;
-            floatingPointsText2.GetComponent<TextMesh>().text = _currentTriggers[0].GetComponent<ObiectMass>().mObiectMass.ToString();
+            floatingPointsText2.GetComponent<TextMesh>().text = (_currentTriggers[0].GetComponent<ObiectMass>().mObiectMass > 0) ?_currentTriggers[0].GetComponent<ObiectMass>().mObiectMass.ToString():"1";
             if (cFloatingPointsText2 != null)
             {
-                Destroy(cFloatingPointsText2, 0.8f);
+                Destroy(cFloatingPointsText2, 0.7f);
             }
             cFloatingPointsText2 = Instantiate(floatingPointsText2, floatP2, Quaternion.identity);
-            //Debug.Log("0 " + _currentTriggers[0].name + "  " + _currentTriggers[0].GetComponent<ObiectMass>().mObiectMass);
           
             prefMass++;
         }

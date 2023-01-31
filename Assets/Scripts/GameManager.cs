@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class GameManager : MonoBehaviour
     public int currentLevel;
 
     public string[] levelNames;
+    public GameObject iputField;
+
+    public string theUserName;
+   
 
     private void Awake()
     {
@@ -30,11 +35,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+      
     }
 
     public void OpenLevel(int newLevelNum)
     {
+ 
         SceneManager.LoadScene(levelNames[newLevelNum]);
     }
 

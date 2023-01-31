@@ -22,21 +22,17 @@ public class Explosive : MonoBehaviour
 
         if (this.gameObject.tag == "Car" && collision.gameObject.tag == "Stopper")
         {
-         //   Debug.Log(this.gameObject.tag + " "+ this.GetComponent<ObiectMass>().mObiectMass + "\n " 
-          //      + collision.gameObject.tag + " "+ collision.GetComponent<ObiectMass>().mObiectMass);
+            AudioManager.instance.Play("Explosion");
+
             if (collision.GetComponent<ObiectMass>().mObiectMass <= this.GetComponent<ObiectMass>().mObiectMass)
             {
-               this.GetComponent<ObiectMass>().mObiectMass += collision.GetComponent<ObiectMass>().mObiectMass;
-             //   this.GetComponent<PlayerCar>().floatingPointsText.GetComponent<TextMesh>().text = this.GetComponent<ObiectMass>().mObiectMass.ToString();
+               this.GetComponent<ObiectMass>().mObiectMass += (collision.GetComponent<ObiectMass>().mObiectMass>0)? collision.GetComponent<ObiectMass>().mObiectMass:1;
                 Destroy(collision.gameObject, 0);
-
-                }
+                AudioManager.instance.Play("LittleExplosion");
+            }
                 else
                 {
-                Debug.Log("*************** " );
-                Debug.Log("Car mass " + this.GetComponent<ObiectMass>().mObiectMass);
-                Debug.Log("Cone mass " + collision.GetComponent<ObiectMass>().mObiectMass);
-                Debug.Log("Max on level "+maxMassOnLevel);
+                AudioManager.instance.Play("Explosion");
                 this.GetComponent<PlayerCar>().carIsDestroy = true;
                 
             }
