@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+
+
 
 public class Explosive : MonoBehaviour
 {
+    private GameObject failPanel;
+    public int maxMassOnLevel = 100;
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -12,31 +18,28 @@ public class Explosive : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*
-                UnityEngine.Debug.Log("====== ");
-                UnityEngine.Debug.Log("Name " + this.name);
-                UnityEngine.Debug.Log("Masa " + this.GetComponent<Rigidbody2D>().mass);
-                UnityEngine.Debug.Log("Name colision" + collision.name);
-                UnityEngine.Debug.Log("Masa " + collision.GetComponent<Rigidbody2D>().mass);
-                UnityEngine.Debug.Log("====== ");
-         UnityEngine.Debug.Log("====== ");
-                    UnityEngine.Debug.Log("Name " + this.name);
-                    UnityEngine.Debug.Log("Masa " + this.GetComponent<Rigidbody2D>().mass);
-                    UnityEngine.Debug.Log("Name colision" + collision.name);
-                    UnityEngine.Debug.Log("Masa " + collision.GetComponent<Rigidbody2D>().mass);
-          UnityEngine.Debug.Log("Masa " + collision.GetComponent<Rigidbody2D>().mass);
-            UnityEngine.Debug.Log("tag :"+ this.name);
-            UnityEngine.Debug.Log("====== ");
-            
-        */
+ 
 
-        if (collision.GetComponent<Rigidbody2D>().mass > this.GetComponent<Rigidbody2D>().mass && collision.name != "Bar")
+        if (this.gameObject.tag == "Car" && collision.gameObject.tag == "Stopper")
         {
-         
+         //   Debug.Log(this.gameObject.tag + " "+ this.GetComponent<ObiectMass>().mObiectMass + "\n " 
+          //      + collision.gameObject.tag + " "+ collision.GetComponent<ObiectMass>().mObiectMass);
+            if (collision.GetComponent<ObiectMass>().mObiectMass <= this.GetComponent<ObiectMass>().mObiectMass)
+            {
+               this.GetComponent<ObiectMass>().mObiectMass += collision.GetComponent<ObiectMass>().mObiectMass;
+             //   this.GetComponent<PlayerCar>().floatingPointsText.GetComponent<TextMesh>().text = this.GetComponent<ObiectMass>().mObiectMass.ToString();
+                Destroy(collision.gameObject, 0);
 
-            collision.GetComponent<Rigidbody2D>().mass++;
-            Destroy(this.gameObject, 0);
-
+                }
+                else
+                {
+                Debug.Log("*************** " );
+                Debug.Log("Car mass " + this.GetComponent<ObiectMass>().mObiectMass);
+                Debug.Log("Cone mass " + collision.GetComponent<ObiectMass>().mObiectMass);
+                Debug.Log("Max on level "+maxMassOnLevel);
+                this.GetComponent<PlayerCar>().carIsDestroy = true;
+                
+            }
         }
     }
 }

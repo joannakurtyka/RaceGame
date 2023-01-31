@@ -1,0 +1,15 @@
+1. [JK] Gra składa się z 4 map, różniących się pomiędzy sobą kolorem, szybkością przesuwania się tłą (auta) oraz ilością przeszkód na drodze.
+2. [JK] Gra wyposażona jest w plansze sterujące: po starcie gry dostępna jest plansza z przyciskiem umożliwiający rozpoczęcie gry, przycisk wyłączający grę oraz przycisk przechodzący do instrukcji. Po uderzeniu w przeszkodę o większej wadze, pojawia się auto umożliwiające przejście do pierwszego poziomu gry lub jej zakończenie oraz plansza po przejściu czwartej mapy z gratulacjami.
+3. [JK] Gra posiada listę najlepszych graczy, która zapisywana jest w pamięci urządzenia. Nazwa gracza wpisywana przez gracza w polu edycyjnym znajdującym się w ekranie startowym.
+4. [KB] Na mapie znajdują się dwie równoległe pasy (jezdnie) i auto może poszurać się tylko po tych pasach. Kliknięcie strzałki w lewo powoduje, że auto przesuwa się na lewy pas, przesunięcie strzałki w prawo powoduje, że auto przesuwa się na prawy pas, jeśli jedzie lewym pasem. Przyciśnięcie strzałki kierunkowej, gdy pojazd znajduje się na pasie na który miałoby przeskoczyć nie powoduje żadnej reakcji.
+5. [KB] Przesunięcie auta nie jest możliwe na wysokości, na której znajduje się przeszkoda na drodze.
+6. [JK] Cyklicznie na drodze pojawiają się przeszkody (jedna na jednym pasie, lub dwie na tej samej wysokości). Odległość pomiędzy poszczególnymi przeszkodami jest coraz mniejsza wraz z poziomem mapy.
+7. [JK] Przeszkody mają określoną wagę, przynajmniej jedna z przeszkód ma wagę mniejszą niż auto, auto na starcie ma wagę 2.
+8. [KB] Gdy autko uderza w przeszkodę o mniejszej wadze, waga autka rośnie o wagę przeszkody, przeszkoda wybucha i auto przez nią przejeżdża.
+9. [KB] Gdy autko uderza w przeszkodę o wadze większej niż waga autka, autko wybucha i pojawia się plansza sterowania grą.
+10.[KB] Na górze gry znajduje się wąski pasek, na których wyświetla się informacja o poziomie (o numerze mapy), waga autka, czas gry, nazwa gracza, nazwa najlepszego gracza (który osiągnął najwyższy poziom jako ostatni).
+11.[JK] Wyświetlenie ostatniej mapy aktualizuję listę najlepszych graczy.
+12.[KB] każdemu uderzeniu w przeszkodę towarzyszy huk (różny w zależności o wyniku uderzenia), każdej zmianie pozycji autka towarzyszy świst, pojawieniu mapy towarzyszy muzyczka.
+
+0.55468
+1.02345
