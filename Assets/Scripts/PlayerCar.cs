@@ -15,7 +15,7 @@ public class PlayerCar : MonoBehaviour
     public bool carIsDestroy = false;
     public GameObject floatingPointsText;
     public GameObject cFloatingPointsText;
-
+    private float pHAxis = 0;
 
     void Start()
     {
@@ -27,10 +27,17 @@ public class PlayerCar : MonoBehaviour
     {
         float hAxis = Input.GetAxis("Horizontal");
         if (shouldMove == 1 && carTransfortm.GetComponent<Transform>().position.x + (hAxis * speedFactor) > -1.1f && carTransfortm.GetComponent<Transform>().position.x + (hAxis * speedFactor) < 1.1f)
-        {
+        {   
+        
             carTransfortm.Translate(shouldMove * hAxis * speedFactor, 0, 0);
+           
 
         }
+        if(pHAxis == 0 && hAxis != 0)
+        {
+            AudioManager.instance.Play("Speeding");
+        }
+        pHAxis = hAxis;
 
         if (floatingPointsText)
         {
